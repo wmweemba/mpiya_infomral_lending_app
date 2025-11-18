@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mpiya - Lending App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: 'hsl(210 40% 50%)',
+                light: 'hsl(210 40% 95%)',
+                dark: 'hsl(210 40% 30%)',
+              },
+              secondary: {
+                DEFAULT: 'hsl(210 40% 98%)',
+                dark: 'hsl(210 30% 15%)',
+              },
+              accent: {
+                DEFAULT: 'hsl(160 60% 50%)',
+                dark: 'hsl(160 60% 40%)'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4A90E2">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "idb": "https://aistudiocdn.com/idb@^8.0.3",
+    "jspdf": "https://aistudiocdn.com/jspdf@^2.5.1",
+    "jspdf-autotable": "https://aistudiocdn.com/jspdf-autotable@^3.8.2",
+    "vite": "https://aistudiocdn.com/vite@^7.2.2",
+    "vite-plugin-pwa": "https://aistudiocdn.com/vite-plugin-pwa@^1.1.0",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-secondary dark:bg-secondary-dark text-slate-800 dark:text-slate-200">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

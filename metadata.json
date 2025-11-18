@@ -1,0 +1,5 @@
+{
+  "name": "Mpiya - Informal Lending",
+  "description": "A Progressive Web App for managing informal money lending in Zambia. It works completely offline and provides tools for tracking loans, borrowers, and payments with automatic interest and penalty calculations.",
+  "requestFramePermissions": []
+}
