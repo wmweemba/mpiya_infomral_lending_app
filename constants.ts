@@ -1,23 +1,34 @@
 
 import type { TenorType } from './types';
 
+// Define ImportMeta interface to satisfy TypeScript when vite/client is missing
+declare global {
+  interface ImportMeta {
+    env: {
+      VITE_PASSCODE?: string;
+      VITE_GOOGLE_CLIENT_ID?: string;
+      VITE_GOOGLE_API_KEY?: string;
+      [key: string]: any;
+    };
+  }
+}
+
 export const DB_NAME = 'MpiyaDB';
-export const DB_VERSION = 1;
+export const DB_VERSION = 2; // Version 2 includes payments index
 export const LOANS_STORE = 'loans';
 export const BORROWERS_STORE = 'borrowers';
 export const PAYMENTS_STORE = 'payments';
 
-export const PASSCODE = '7802'; // Demo passcode
+// Safe Environment Variable Access
+// In some preview environments, import.meta.env might be undefined.
+const safeEnv = import.meta.env || {};
+
+export const PASSCODE = safeEnv.VITE_PASSCODE || '7802'; 
 export const INACTIVITY_TIMEOUT = 2 * 60 * 1000; // 2 minutes
 
 // GOOGLE API CONSTANTS
-// INSTRUCTIONS:
-// 1. Go to Google Cloud Console > APIs & Services > Credentials
-// 2. Create an OAuth 2.0 Client ID (Web Application)
-// 3. Add "http://localhost:5173" to "Authorized JavaScript origins"
-// 4. Copy the Client ID and API Key below:
-export const GOOGLE_CLIENT_ID = '1050557399482-o41q3olk2lru917ds0bo0rf60b32glhg.apps.googleusercontent.com'; 
-export const GOOGLE_API_KEY = 'AIzaSyAN0RtHI_sZgYTCqKEgid4yGoCuNTl6AlU';
+export const GOOGLE_CLIENT_ID = safeEnv.VITE_GOOGLE_CLIENT_ID || ''; 
+export const GOOGLE_API_KEY = safeEnv.VITE_GOOGLE_API_KEY || '';
 
 export const DISCOVERY_DOCS = [
   "https://www.googleapis.com/discovery/v1/apis/drive/v3/rest",

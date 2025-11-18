@@ -5,6 +5,23 @@ All notable changes to the "Mpiya" project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2024-05-23
+
+### Added
+- **Loan Management:** Added ability to **Edit** and **Delete** loans directly from the list view.
+- **Deployment:** Added support for Vercel deployment using Environment Variables (`import.meta.env`) for secure credential management.
+- **Build System:** Created local CSS entry point (`index.css`) and Tailwind configuration for production builds.
+
+### Changed
+- **Database:** Upgraded IndexedDB schema to Version 2. Added `loanId` index to the `payments` store to support cascading deletions.
+- **Architecture:** Migrated from CDN-based imports to a standard Vite + npm dependency model.
+- **UI:** Improved Loan card interaction; Edit/Delete buttons now properly stop event propagation to prevent opening the details modal accidentally.
+
+### Fixed
+- Fixed `Uncaught TypeError` regarding `VITE_PASSCODE` by adding safety checks for environment variables.
+- Fixed module resolution errors by switching `App.tsx` to a named export.
+- Fixed "Delete Loan" button inactivity by resolving event bubbling conflicts.
+
 ## [1.0.0] - 2024-05-23
 
 ### Added
